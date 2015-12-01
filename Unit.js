@@ -20,7 +20,7 @@ var Operators = {
 }
 
 //Conversion functions
-function combineUnit(unit1 op unit2){
+function combineUnit(unit1, op, unit2){
 
       return new Unit(
           unit1.disp + op + unit2,
@@ -30,7 +30,7 @@ function combineUnit(unit1 op unit2){
 
   }
 
-  function combine(mes1 op mes2){
+  function combine(mes1, op, mes2){
     return new Msm(
       switch (op) {
         case '+':
