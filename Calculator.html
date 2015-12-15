@@ -30,6 +30,7 @@
           Calculate
       </button>
     </div>
+    <h2 id="result"></h2>
     <script>
 
     function ev(){
@@ -43,10 +44,8 @@
       var mes1 = new Msm(parseInt(protoMes1[0]), findUnitByAbbrev(protoMes1[1]));
       var mes2 = new Msm(parseInt(protoMes2[0]), findUnitByAbbrev(protoMes2[1]));
 
-      console.dir(mes1);
-      console.dir(mes2);
-
-      
+      var res = combine(mes1, op, mes2);
+      document.getElementById('result').innerHTML = res.value.toString() + " " + res.unit.intrinsicVal;
     }
 
     </script>
