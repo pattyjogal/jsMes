@@ -17,10 +17,9 @@ function Msm(value, unit) {
 /*Unit: The unit type. Stores a display value, programmatic value, and a list of equivalents.
  *
  */
-function Unit(disp, intrinsicVal, equivalents, exp) {
+function Unit(disp, intrinsicVal, exp) {
   this.disp = disp;
   this.intrinsicVal = intrinsicVal;
-  this.equivalents = equivalents;
   this.exp = exp;
 }
 
@@ -54,7 +53,6 @@ function combineUnit(unit1, op, unit2) {
       return new Unit(
         dsem,
         unit1.intrinsicVal,
-        unit1.equivalents,
         unit1.exp + unit2.exp
       );
     } else {
@@ -90,11 +88,7 @@ function operatorHandle(mes1, op, mes2) {
 function combine(mes1, op, mes2) {
   return new Msm(operatorHandle(mes1, op, mes2), combineUnit(mes1.unit, op, mes2.unit));
 }
-var meter = new Unit("meter", "m", [], 1);
-var myMeasure = new Msm(20, meter);
-var yourMeasure = new Msm(57, meter);
-var doubMeter = new Unit("meter^2", "m", [], 2);
-var shiteMeasure = new Msm(66, doubMeter);
+
 console.log(myMeasure.toString());
 
 console.log(combine(combine(myMeasure, Operators.MULTIPLY, yourMeasure), Operators.DIVIDE, myMeasure).toString());
