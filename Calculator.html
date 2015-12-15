@@ -26,16 +26,31 @@
         <input class="mdl-textfield__input" type="text" id="m2">
         <label class="mdl-textfield__label" for="m2">Second measurement</label>
       </div>
-      <button onClick="evaluate()" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+      <button onClick="ev();" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
           Calculate
       </button>
     </div>
     <script>
 
-    var m1;
-    var op;
-    var m2;
+    function ev(){
+      var m1 = document.getElementById('m1').value;
+      var op = document.getElementById('op').value;
+      var m2 = document.getElementById('m2').value;
+
+      var protoMes1 = m1.split(" ");
+      var protoMes2 = m2.split(" ");
+
+      var mes1 = new Msm(parseInt(protoMes1[0]), findUnitByAbbrev(protoMes1[1]));
+      var mes2 = new Msm(parseInt(protoMes2[0]), findUnitByAbbrev(protoMes2[1]));
+
+      console.dir(mes1);
+      console.dir(mes2);
+
+      
+    }
 
     </script>
+    <script src="Unit.js"></script>
+    <script src="Definitons.js"></script>
   </body>
 </html>

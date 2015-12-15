@@ -89,6 +89,12 @@ function combine(mes1, op, mes2) {
   return new Msm(operatorHandle(mes1, op, mes2), combineUnit(mes1.unit, op, mes2.unit));
 }
 
-console.log(myMeasure.toString());
+function findUnitByAbbrev(abb){
 
-console.log(combine(combine(myMeasure, Operators.MULTIPLY, yourMeasure), Operators.DIVIDE, myMeasure).toString());
+    for (i = 0; i < unitDefs.length; i++){
+      if (unitDefs[i].intrinsicVal == abb) {
+        return unitDefs[i];
+      }
+    }
+
+}
